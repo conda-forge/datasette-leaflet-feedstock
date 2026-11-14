@@ -3,18 +3,18 @@ schema_version: 1
 
 context:
   name: datasette-leaflet
-  version: "0.2.2"
+  version: "0.3"
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/datasette-leaflet-${{ version }}.tar.gz
-  sha256: 8fd4e634304be392ae6f7de770d4f22b95a37caecd676a35faeb6200da9423bc
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 81fc3112e2c49f77c8b2c1a2a57abc64a6b7127594e8eddcb23f0f4e1b1e5175
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
